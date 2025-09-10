@@ -1,32 +1,32 @@
+// js/main.js
 document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("login-form");
-  if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = this.email.value;
-      const password = this.password.value;
-
-      if (email && password) {
-        alert("Login successful!");
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", email);
-        window.location.href = "dashboard.html";
-      } else {
-        alert("Please enter both fields.");
-      }
-    });
+  // Admin override (you only)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('admin') === 'true') {
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userRole", "admin");
+    localStorage.setItem("userEmail", "admin@wiseworx.digital");
   }
 
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const userEmail = localStorage.getItem("userEmail");
+  const userRole = localStorage.getItem("userRole") || "user";
 
-  if (window.location.pathname.includes("dashboard.html")) {
-    if (!isLoggedIn) {
-      alert("Please log in first.");
-      window.location.href = "login.html";
-    } else {
-      const emailEl = document.getElementById("user-email");
-      if (emailEl) emailEl.textContent = userEmail;
+  // Update UI based on login
+  const nav = document.querySelector(".nav");
+  if (isLoggedIn) {
+    if (!document.querySelector('.logout-btn')) {
+      const logoutBtn = document.createElement('a');
+      logoutBtn.href = "#";
+      logoutBtn.textContent = "Logout";
+      logoutBtn.className = "logout-btn";
+      logoutBtn.onclick = logout;
+      nav.appendChild(logoutBtn);
     }
+  }
+
+  function logout() {
+    localStorage.clear();
+    alert("Logged out.");
+    window.location.href = "index.html";
   }
 });
