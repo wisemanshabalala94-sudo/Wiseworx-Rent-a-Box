@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wiseworx Digital | Affordable Global TV</title>
-  <meta name="description" content="Rent a TV box, buy a smart TV, or stream online. Access BBC, SABC, SuperSport, movies & shows worldwide.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Wiseworx Digital | Global TV</title>
+  <meta name="description" content="Stream 300+ live TV channels, movies, and shows from around the world — anytime, anywhere.">
+
+  <!-- Google Fonts: Poppins + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Favicon -->
   <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Header -->
   <header class="header">
     <div class="container">
       <div class="logo">
@@ -26,6 +36,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <h1>Affordable, Global, and Reliable</h1>
@@ -37,6 +48,7 @@
     </div>
   </section>
 
+  <!-- Channel Carousel -->
   <section class="channels">
     <div class="container">
       <h2>Live TV Channels</h2>
@@ -56,6 +68,7 @@
     </div>
   </section>
 
+  <!-- Services -->
   <section class="services">
     <div class="container">
       <div class="service-card">
@@ -79,18 +92,7 @@
     </div>
   </section>
 
-  <section class="cta" style="padding:60px 0;">
-    <div class="container">
-      <h3>Own the Box – One-Time Purchase</h3>
-      <p>Pay once, keep forever. Full access to all channels and updates.</p>
-      <a href="https://pay.zoho.com/v1/checkout/7068042000000103027-WiX-OWN" 
-         class="btn btn-white" 
-         target="_blank">
-         Buy Now – R3,000
-      </a>
-    </div>
-  </section>
-
+  <!-- Call to Action -->
   <section class="cta">
     <div class="container">
       <h3>Get Started Today</h3>
@@ -99,6 +101,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -118,6 +121,7 @@
     </div>
   </footer>
 
+  <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     new Swiper('.swiper', {
@@ -126,7 +130,9 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      autoplay: { delay: 3000 },
+      autoplay: {
+        delay: 3000,
+      },
       slidesPerView: 2,
       spaceBetween: 20,
       breakpoints: {
